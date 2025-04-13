@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  graphqlorder.api:
+    container_name: graphqlorder-api
+    image: ${DOCKER_REGISTRY-}graphqlorderapi
+    build:
+      context: .
+      dockerfile: GraphQLOrder.Api/Dockerfile
+    networks:
+        - backend-net
+
+  graphqlorder-api-db:
+    container_name: graphqlorder-api-db
+    image: postgres:17
+    restart: always
+    ports:
+    - "54308:5432"
+    networks:
+    - backend-net
+    volumes:
+    - ./init_history.sql:/docker-entrypoint-initdb.d/init_history.sql
+
+networks:
+  backend-net:

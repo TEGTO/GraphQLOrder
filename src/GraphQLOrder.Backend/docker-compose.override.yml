@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  graphqlorder.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - EFCreateDatabase=true
+      - ConnectionStrings__Db=User ID=user1;Password=12345;Host=graphqlorder-api-db;Port=5432;Database=order-db;Pooling=true;MinPoolSize=0;MaxPoolSize=100;ConnectionLifetime=0;TrustServerCertificate=true
+    ports:
+      - "8080"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  graphqlorder-api-db:
+    environment:
+        - POSTGRES_DB=order-db
+        - POSTGRES_USER=user1
+        - POSTGRES_PASSWORD=12345
