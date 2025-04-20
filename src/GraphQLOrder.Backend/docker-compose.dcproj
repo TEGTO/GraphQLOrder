@@ -6,7 +6,9 @@
     <DockerPublishLocally>False</DockerPublishLocally>
     <ProjectGuid>ee63378c-e68c-49e1-9c6f-f2198eee212a</ProjectGuid>
     <DockerServiceName>graphqlorder.api</DockerServiceName>
-	<DockerComposeProjectName>graphqlorder-backend</DockerComposeProjectName>
+    <DockerComposeProjectName>graphqlorder-backend</DockerComposeProjectName>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

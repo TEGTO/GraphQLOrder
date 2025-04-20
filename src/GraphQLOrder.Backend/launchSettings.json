@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "graphqlorder.api": "StartDebugging"
+        "graphqlorder.api": "StartDebugging",
+        "graphqlorder.api.hotchocolate": "StartDebugging"
       }
     }
   }
